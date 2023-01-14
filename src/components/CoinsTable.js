@@ -3,10 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
 import {
   Container,
-  createTheme,
   TableCell,
   LinearProgress,
-  ThemeProvider,
   Typography,
   TextField,
   TableBody,
@@ -24,7 +22,6 @@ import { CryptoState } from "../CryptoContext";
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-
 export default function CoinsTable() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -35,16 +32,17 @@ export default function CoinsTable() {
 
   const useStyles = makeStyles({
     row: {
-      backgroundColor: "#16171a",
+      backgroundColor: "lightgray",
       cursor: "pointer",
+      transition:"all .3s linear",
       "&:hover": {
-        backgroundColor: "#131111",
+        backgroundColor: "gray",
       },
       fontFamily: "Montserrat",
     },
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "gold",
+        color: "black",
       },
     },
   });
@@ -52,14 +50,7 @@ export default function CoinsTable() {
   const classes = useStyles();
   const history = useHistory();
 
-  const darkTheme = createTheme({
-    palette: {
-      primary: {
-        main: "#fff",
-      },
-      type: "dark",
-    },
-  });
+
 
   const fetchCoins = async () => {
     setLoading(true);
@@ -84,11 +75,11 @@ export default function CoinsTable() {
   };
 
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Container style={{ textAlign: "center" }}>
+  
+      <Container style={{ textAlign: "center" ,backgroundColor:"white"}}>
         <Typography
           variant="h4"
-          style={{ margin: 18, fontFamily: "Montserrat" }}
+          style={{ margin: 18, fontFamily: "Montserrat",color:"black" }}
         >
           Cryptocurrency Prices by Market Cap
         </Typography>
@@ -157,7 +148,7 @@ export default function CoinsTable() {
                             >
                               {row.symbol}
                             </span>
-                            <span style={{ color: "darkgrey" }}>
+                            <span style={{ color: "black" }}>
                               {row.name}
                             </span>
                           </div>
@@ -169,7 +160,7 @@ export default function CoinsTable() {
                         <TableCell
                           align="right"
                           style={{
-                            color: profit > 0 ? "rgb(14, 203, 129)" : "red",
+                            color: profit > 0 ? "rgb(7, 116, 7)" : "red",
                             fontWeight: 500,
                           }}
                         >
@@ -207,6 +198,6 @@ export default function CoinsTable() {
           }}
         />
       </Container>
-    </ThemeProvider>
+  
   );
 }

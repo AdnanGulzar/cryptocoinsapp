@@ -44,12 +44,12 @@ const CoinPage = () => {
       marginTop: 25,
       borderRight: "2px solid grey",
     },
-    heading: {
+    heading: {color:"black",
       fontWeight: "bold",
       marginBottom: 20,
       fontFamily: "Montserrat",
     },
-    description: {
+    description: {color:"black",
       width: "100%",
       fontFamily: "Montserrat",
       padding: 25,
@@ -57,7 +57,7 @@ const CoinPage = () => {
       paddingTop: 0,
       textAlign: "justify",
     },
-    marketData: {
+    marketData: {color:"black",
       alignSelf: "start",
       padding: 25,
       paddingTop: 10,

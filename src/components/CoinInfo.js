@@ -4,9 +4,8 @@ import { HistoricalChart } from "../config/api";
 import { Line } from "react-chartjs-2";
 import {
   CircularProgress,
-  createTheme,
   makeStyles,
-  ThemeProvider,
+ 
 } from "@material-ui/core";
 import SelectButton from "./SelectButton";
 import { chartDays } from "../config/data";
@@ -19,7 +18,7 @@ const CoinInfo = ({ coin }) => {
   const [flag,setflag] = useState(false);
 
   const useStyles = makeStyles((theme) => ({
-    container: {
+    container: {color:"black",
       width: "75%",
       display: "flex",
       flexDirection: "column",
@@ -51,17 +50,9 @@ const CoinInfo = ({ coin }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days]);
 
-  const darkTheme = createTheme({
-    palette: {
-      primary: {
-        main: "#fff",
-      },
-      type: "dark",
-    },
-  });
 
   return (
-    <ThemeProvider theme={darkTheme}>
+
       <div className={classes.container}>
         {!historicData | flag===false ? (
           <CircularProgress
@@ -121,7 +112,7 @@ const CoinInfo = ({ coin }) => {
           </>
         )}
       </div>
-    </ThemeProvider>
+    
   );
 };
 

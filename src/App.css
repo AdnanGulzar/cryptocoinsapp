@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
 
+html,
+body,
+#root{
+  /* overflow-y: auto; */
+  /* overflow-x: hidden; */
+  height: 300vh;
+}
 * {
   margin: 0;
   padding: 0;
@@ -11,3 +18,4 @@ a {
   text-decoration: none;
   color: gold;
 }
+
